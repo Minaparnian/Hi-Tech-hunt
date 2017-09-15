@@ -21002,9 +21002,18 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'h2',
+        'div',
         null,
-        'React Component'
+        _react2.default.createElement(
+          'h2',
+          null,
+          'React Component'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'hello'
+        )
       );
     }
   }]);
