@@ -21059,8 +21059,7 @@ var HomePage = function (_React$Component) {
                     _react2.default.createElement('i', { className: 'fa fa-sort-asc' })
                   ),
                   _react2.default.createElement('br', null),
-                  '// ',
-                  this.state.productList[0].upvote
+                  this.state.ProductList[0].upvote
                 )
               )
             )
