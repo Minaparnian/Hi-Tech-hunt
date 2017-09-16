@@ -10,8 +10,9 @@ class Popup extends React.Component {
           <img src="/img/close.png"
             onClick={this.props.hidePopup}/>
         </section>
-        <section className="popup-content">
-          <section>Popup content should be here</section>
+        <section className="popup-content login-popup">
+          {/*{this.props.children} means every contents which is inside the Popup tag in LoginPupup going here*/}
+          <section>{this.props.children}</section>
 
         </section>
 
@@ -25,7 +26,6 @@ class Popup extends React.Component {
     return(
       <section>
         {/* ? means have a value and : means false */}
-
         {
           this.props.status ? this.renderPopupContent() : null
         }
