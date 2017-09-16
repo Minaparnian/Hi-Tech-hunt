@@ -20969,7 +20969,7 @@ module.exports = traverseAllChildren;
 module.exports = require('./lib/React');
 
 },{"./lib/React":159}],183:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -20977,7 +20977,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20995,30 +20995,71 @@ var HomePage = function (_React$Component) {
   function HomePage() {
     _classCallCheck(this, HomePage);
 
-    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
+    var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
+
+    _this.state = {
+      ProductList: [{
+        id: 1,
+        name: 'Codeacademy',
+        link: 'https://codeacademy.com',
+        media: '/img/codeacademy.jpeg',
+        upvote: 169,
+        description: 'Code for anyone',
+        maker: {
+          name: 'Miriam',
+          avatar: '/img/Miriam.jpg'
+        }
+
+      }, {
+        id: 2,
+        name: 'Code4Startup',
+        link: 'https://code4startup.com',
+        media: '/img/code4startup.jpeg',
+        upvote: 278,
+        description: 'Code for startups',
+        maker: {
+          name: 'Mina',
+          avatar: '/img/Mina.jpg'
+        }
+
+      }]
+    };
+    return _this;
   }
 
   _createClass(HomePage, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "section",
+        'section',
         null,
         _react2.default.createElement(
-          "header",
+          'header',
           null,
-          _react2.default.createElement("img", { src: "/img/banner.jpeg", width: "100%" })
+          _react2.default.createElement('img', { src: '/img/banner.jpeg', width: '100%' })
         ),
         _react2.default.createElement(
-          "section",
+          'section',
           null,
           _react2.default.createElement(
-            "section",
-            { className: "container" },
+            'section',
+            { className: 'container' },
             _react2.default.createElement(
-              "h2",
-              null,
-              "ProductList"
+              'ul',
+              { className: 'product-list' },
+              _react2.default.createElement(
+                'li',
+                { className: 'product-item' },
+                _react2.default.createElement(
+                  'a',
+                  { className: 'upvote-button', href: '#' },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('i', { 'class': 'fa fa-sort-asc', 'aria-hidden': 'true' })
+                  )
+                )
+              )
             )
           )
         )

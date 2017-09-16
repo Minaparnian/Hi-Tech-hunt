@@ -5,6 +5,36 @@ import React from 'react';
 class HomePage extends React.Component {
   constructor(){
     super();
+    this.state = {
+      ProductList: [
+        {
+          id: 1,
+          name: 'Codeacademy',
+          link: 'https://codeacademy.com',
+          media: '/img/codeacademy.jpeg',
+          upvote: 169,
+          description: 'Code for anyone',
+          maker: {
+            name: 'Miriam',
+            avatar: '/img/Miriam.jpg'
+          }
+
+        },
+        {
+          id: 2,
+          name: 'Code4Startup',
+          link: 'https://code4startup.com',
+          media: '/img/code4startup.jpeg',
+          upvote: 278,
+          description: 'Code for startups',
+          maker: {
+            name: 'Mina',
+            avatar: '/img/Mina.jpg'
+          }
+
+        }
+      ]
+    }
   }
   render(){
     return(
@@ -15,11 +45,20 @@ class HomePage extends React.Component {
 
           <section>
             <section className="container">
-            <h2>ProductList</h2>
+            <ul className="product-list">
+              <li className="product-item">
+                <a className="upvote-button" href="#">
+                  <span>
+                    <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </li>
+
+            </ul>
             </section>
           </section>
       </section>
-      
+
     );
   }
 }
