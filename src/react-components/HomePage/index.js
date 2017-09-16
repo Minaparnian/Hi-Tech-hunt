@@ -52,8 +52,8 @@ class HomePage extends React.Component {
                     <i className="fa fa-sort-asc"></i>
                   </span>
                   <br/>
-              
-                {this.state.productList[0].upvote}
+
+                // {this.state.productList[0].upvote}
                 </a>
               </li>
 
