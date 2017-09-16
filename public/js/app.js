@@ -21099,7 +21099,7 @@ var Popup = function (_React$Component) {
         _react2.default.createElement(
           "section",
           { className: "popup-wrap" },
-          _react2.default.createElement("img", { src: "/img/close.png" })
+          _react2.default.createElement("img", { src: "/img/close.png", onClick: this.props.hidePopup })
         ),
         _react2.default.createElement(
           "section",
@@ -21118,13 +21118,19 @@ var Popup = function (_React$Component) {
       return _react2.default.createElement(
         "section",
         null,
-        this.renderPopupContent()
+        this.props.status ? this.renderPopupContent() : null
       );
     }
   }]);
 
   return Popup;
 }(_react2.default.Component);
+
+// this.props.hidePopup was passed by the Popup in Navbar/index.js
+//we dont have the pop up come up straight away because when we first render the Navbar, the popupStatus is false, so whe you click on login, we execute the showPopup, which set the status to true, and then it pass that status to the Popup Component.
+//  this.props.status? equals true, renderPopupContent, otherwise false.
+//when we close the button, we run the hidePopup function that put the status to false and stop rending Popup Component
+
 
 exports.default = Popup;
 
@@ -21159,8 +21165,23 @@ var Navbar = function (_React$Component) {
   function Navbar() {
     _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this));
+
+    _this.showPopup = function () {
+      _this.setState({ popupStatus: true });
+    };
+
+    _this.hidePopup = function () {
+      _this.setState({ popupStatus: false });
+    };
+
+    _this.state = {
+      popupStatus: false
+    };
+    return _this;
   }
+  // use fat arrow to be able to call the functions in render.
+
 
   _createClass(Navbar, [{
     key: 'renderProductSearch',
@@ -21188,7 +21209,7 @@ var Navbar = function (_React$Component) {
         { className: 'right-side' },
         _react2.default.createElement(
           'a',
-          { href: '#', className: 'login-btn' },
+          { href: '#', onClick: this.showPopup, className: 'login-btn' },
           'LOGIN'
         )
       );
@@ -21206,7 +21227,7 @@ var Navbar = function (_React$Component) {
           this.renderLogo(),
           this.renderUser()
         ),
-        _react2.default.createElement(_Popup2.default, null)
+        _react2.default.createElement(_Popup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
       );
     }
   }]);

@@ -5,7 +5,8 @@ class Popup extends React.Component {
     return (
       <section className="popup">
         <section className="popup-wrap">
-          <img src="/img/close.png"/>
+
+          <img src="/img/close.png" onClick={this.props.hidePopup}/>
         </section>
         <section className="popup-content">
           <section>POPUP CONTENT SHOULD BE HERE</section>
@@ -17,10 +18,16 @@ class Popup extends React.Component {
   render() {
     return (
       <section>
-        {this.renderPopupContent()}
+        {
+          this.props.status? this.renderPopupContent() : null
+        }
       </section>
     );
   }
 }
 
+// this.props.hidePopup was passed by the Popup in Navbar/index.js
+//we dont have the pop up come up straight away because when we first render the Navbar, the popupStatus is false, so whe you click on login, we execute the showPopup, which set the status to true, and then it pass that status to the Popup Component.
+//  this.props.status? equals true, renderPopupContent, otherwise false.
+//when we close the button, we run the hidePopup function that put the status to false and stop rending Popup Component
 export default Popup;
