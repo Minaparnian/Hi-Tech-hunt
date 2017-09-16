@@ -75,3 +75,8 @@ a {
   color: #444444;
   text-decoration: none;
 }
+
+.small-avatar  {
+	height: 200px;
+	width: 150px;
+}

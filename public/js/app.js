@@ -20998,11 +20998,11 @@ var HomePage = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
 
     _this.state = {
-      ProductList: [{
+      productList: [{
         id: 1,
         name: 'Codeacademy',
         link: 'https://codeacademy.com',
-        media: '/img/codeacademy.jpeg',
+        media: '/img/codecademy.jpeg',
         upvote: 169,
         description: 'Code for anyone',
         maker: {
@@ -21059,7 +21059,88 @@ var HomePage = function (_React$Component) {
                     _react2.default.createElement('i', { className: 'fa fa-sort-asc' })
                   ),
                   _react2.default.createElement('br', null),
-                  this.state.ProductList[0].upvote
+                  this.state.productList[0].upvote
+                ),
+                _react2.default.createElement('img', { className: 'product-item-media', src: this.state.productList[0].media }),
+                _react2.default.createElement(
+                  'section',
+                  { className: 'product-item-info' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    _react2.default.createElement(
+                      'h2',
+                      null,
+                      this.state.productList[0].name
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    this.state.productList[0].description
+                  ),
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    _react2.default.createElement('img', { className: 'small-avatar', src: this.state.productList[0].maker.avatar })
+                  )
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { className: 'product-item-link', href: this.state.productList[0].link },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('i', { className: 'fa fa-external-link' })
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                { className: 'product-item' },
+                _react2.default.createElement(
+                  'a',
+                  { className: 'upvote-button', href: '#' },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('i', { className: 'fa fa-sort-asc' })
+                  ),
+                  _react2.default.createElement('br', null),
+                  this.state.productList[1].upvote
+                ),
+                _react2.default.createElement('img', { className: 'product-item-media', src: this.state.productList[1].media }),
+                _react2.default.createElement(
+                  'section',
+                  { className: 'product-item-info' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    _react2.default.createElement(
+                      'h2',
+                      null,
+                      this.state.productList[1].name
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    this.state.productList[1].description
+                  ),
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    _react2.default.createElement('img', { className: 'small-avatar', src: this.state.productList[1].maker.avatar })
+                  )
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { className: 'product-item-link', href: this.state.productList[1].link },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('i', { className: 'fa fa-external-link' })
+                  )
                 )
               )
             )
