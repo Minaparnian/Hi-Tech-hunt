@@ -49,8 +49,11 @@ class HomePage extends React.Component {
               <li className="product-item">
                 <a className="upvote-button" href="#">
                   <span>
-                    <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                    <i className="fa fa-sort-asc"></i>
                   </span>
+                  <br/>
+              
+                {this.state.productList[0].upvote}
                 </a>
               </li>
 
