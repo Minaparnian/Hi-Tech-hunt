@@ -51,9 +51,7 @@ class HomePage extends React.Component {
                   <span>
                     <i className="fa fa-sort-asc"></i>
                   </span>
-                  <br/>
-
-                {this.state.productList[0].upvote}
+                    {this.state.productList[0].upvote}
                 </a>
                 <img className="product-item-media" src={this.state.productList[0].media} />
                 <section className="product-item-info">
@@ -78,9 +76,7 @@ class HomePage extends React.Component {
                   <span>
                     <i className="fa fa-sort-asc"></i>
                   </span>
-                  <br/>
-
-                {this.state.productList[1].upvote}
+                    {this.state.productList[1].upvote}
                 </a>
                 <img className="product-item-media" src={this.state.productList[1].media} />
                 <section className="product-item-info">
