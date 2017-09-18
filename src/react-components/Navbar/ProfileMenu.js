@@ -3,6 +3,7 @@ import React from 'react';
 
 
 class ProfileMenu extends React.Component {
+
   renderProfileNav() {
     return(
       <nav className="profile-nav" ref="profileNav">
