@@ -21381,10 +21381,39 @@ var ProfileMenu = function (_React$Component) {
   function ProfileMenu() {
     _classCallCheck(this, ProfileMenu);
 
-    return _possibleConstructorReturn(this, (ProfileMenu.__proto__ || Object.getPrototypeOf(ProfileMenu)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ProfileMenu.__proto__ || Object.getPrototypeOf(ProfileMenu)).call(this));
+
+    _this.handleClick = function () {
+      if (_this.state.showProfileNav) {
+        _this.setState({ showProfileNav: false });
+      } else {
+        _this.setState({ showProfileNav: true });
+      }
+    };
+
+    _this.handleClickOutside = function (e) {
+      if (e.target != _this.refs.profileBtn) {
+        _this.setState({ showProfileNav: false });
+      }
+    };
+
+    _this.state = {
+      showProfileNav: false
+    };
+    return _this;
   }
 
   _createClass(ProfileMenu, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      window.addEventListener("click", this.handleClickOutside, false);
+    }
+  }, {
+    key: "componentWillUnMount",
+    value: function componentWillUnMount() {
+      window.removeEventListener("click", this.handleClickOutside, false);
+    }
+  }, {
     key: "renderProfileNav",
     value: function renderProfileNav() {
       return _react2.default.createElement(
@@ -21408,8 +21437,8 @@ var ProfileMenu = function (_React$Component) {
       return _react2.default.createElement(
         "section",
         { className: "profile-menu" },
-        _react2.default.createElement("img", { src: "/img/Miriam.jpg", className: "profile-btn medium-avatar" }),
-        this.renderProfileNav()
+        _react2.default.createElement("img", { src: "/img/Miriam.jpg", onClick: this.handleClick, className: "profile-btn medium-avatar", ref: "profileBtn" }),
+        this.state.showProfileNav ? this.renderProfileNav() : null
       );
     }
   }]);
