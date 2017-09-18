@@ -48,10 +48,10 @@ class Navbar extends React.Component {
             <PostPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
           </section>
           :
-
+          //display the login link here
           <section>
             <a href="#" onClick={this.showPopup} className="login-btn">LOGIN</a>
-            <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+          <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
           </section>
         }
       </section>

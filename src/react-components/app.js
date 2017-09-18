@@ -10,7 +10,7 @@ class App extends React.Component {
   render(){
     return (
       <section>
-        <Navbar user={false}/>
+        <Navbar user={true}/>
         <HomePage/>
       </section>
 

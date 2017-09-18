@@ -21265,7 +21265,7 @@ var PostPopup = function (_React$Component) {
         _extends({}, this.props, { style: 'post-popup' }),
         _react2.default.createElement(
           'header',
-          null,
+          { className: 'post-header' },
           ' Post a new product'
         ),
         _react2.default.createElement(
@@ -21443,7 +21443,9 @@ var Navbar = function (_React$Component) {
             )
           ),
           _react2.default.createElement(_PostPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
-        ) : _react2.default.createElement(
+        ) :
+        //display the login link here
+        _react2.default.createElement(
           'section',
           null,
           _react2.default.createElement(
@@ -21693,7 +21695,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         null,
-        _react2.default.createElement(_Navbar2.default, { user: false }),
+        _react2.default.createElement(_Navbar2.default, { user: true }),
         _react2.default.createElement(_HomePage2.default, null)
       );
     }
