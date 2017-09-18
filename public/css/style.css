@@ -224,6 +224,7 @@ a {
 	left: 0;
 	background-color: white;
 	opacity: 0.97;
+	margin-left: 0!important;
 }
 
 .popup .popup-wrap img {
