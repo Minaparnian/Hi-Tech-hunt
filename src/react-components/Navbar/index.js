@@ -8,8 +8,9 @@ class Navbar extends React.Component {
       popupStatus: false
     }
   }
- {/* we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar */}
+
   showPopup = () => {
+    {/* we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar */}
     this.setState({ popupStatus: true }) ;
   };
 
@@ -49,6 +50,7 @@ class Navbar extends React.Component {
           {this.renderUser()}
         </section>
         <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+        <PostPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
       </section>
 
     );
