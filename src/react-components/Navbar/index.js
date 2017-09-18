@@ -9,14 +9,16 @@ class Navbar extends React.Component {
       popupStatus: false
     }
   }
-  // use fat arrow to be able to call the functions in render.
+
   showPopup = () => {
-    this.setState({popupStatus: true});
+
+    this.setState({ popupStatus: true }) ;
   };
 
   hidePopup = () => {
-    this.setState({popupStatus: false});
+    this.setState({ popupStatus: false }) ;
   };
+
 
   renderProductSearch(){
     return (
@@ -38,7 +40,7 @@ class Navbar extends React.Component {
         {
           this.props.user
           ?
-          //display the post link here
+
           <section>
             <span>
               <a href="#" onClick={this.showPopup} className="login-btn">POST</a>
@@ -64,7 +66,6 @@ class Navbar extends React.Component {
           {this.renderLogo()}
           {this.renderUser()}
         </section>
-
       </section>
 
     );
@@ -72,3 +73,5 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
+
+ //we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar

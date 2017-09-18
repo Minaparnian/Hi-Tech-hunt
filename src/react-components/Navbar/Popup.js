@@ -1,31 +1,40 @@
 import React from 'react';
 
+
 class Popup extends React.Component {
+
   renderPopupContent(){
-    return (
+    return(
       <section className="popup">
         <section className="popup-wrap">
-
-          <img src="/img/close.png" onClick={this.props.hidePopup}/>
+          <img src="/img/close.png"
+            onClick={this.props.hidePopup}/>
         </section>
         <section className={"popup-content " + this.props.style}>
-          <section>{this.props.children}</section>
-        </section>
 
+          <section>{this.props.children}</section>
+
+        </section>
       </section>
     );
+
   }
-  render() {
-    return (
+
+
+  render(){
+    return(
       <section>
+
         {
-          this.props.status? this.renderPopupContent() : null
+          this.props.status ? this.renderPopupContent() : null
         }
       </section>
     );
   }
 }
 
+//? means have a value and : means false
+//{this.props.children} means every contents which is inside the Popup tag in LoginPupup going here
 // this.props.hidePopup was passed by the Popup in Navbar/index.js
 //we dont have the pop up come up straight away because when we first render the Navbar, the popupStatus is false, so whe you click on login, we execute the showPopup, which set the status to true, and then it pass that status to the Popup Component.
 //  this.props.status? equals true, renderPopupContent, otherwise false.

@@ -21106,12 +21106,12 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'Login to Join The Comnunity'
+          'Login To Join The Community'
         ),
         _react2.default.createElement(
           'p',
           null,
-          'CodeHunt is a community to share and geek out about the latest code, podcast and news. Join us :)'
+          'Codehunt is the Community to share geek out about the latest code, podcast and news. Join us :)'
         ),
         _react2.default.createElement(
           'button',
@@ -21121,7 +21121,7 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'p',
           null,
-          'We\'ll never post to Facebook without your permission.'
+          'We will never post to your facebook without permission'
         )
       );
     }
@@ -21132,6 +21132,7 @@ var LoginPopup = function (_React$Component) {
 
 exports.default = LoginPopup;
 
+// {...this.props} is the shortcut of status={this.props.status} hidePopup={this.props.hidePopup}
 //{...this.props} it is a shortcode to write something like status={this.props.status} hidePopup={this.props.hidePopup}
 
 },{"./Popup":185,"react":182}],185:[function(require,module,exports){
@@ -21173,7 +21174,8 @@ var Popup = function (_React$Component) {
         _react2.default.createElement(
           "section",
           { className: "popup-wrap" },
-          _react2.default.createElement("img", { src: "/img/close.png", onClick: this.props.hidePopup })
+          _react2.default.createElement("img", { src: "/img/close.png",
+            onClick: this.props.hidePopup })
         ),
         _react2.default.createElement(
           "section",
@@ -21200,6 +21202,8 @@ var Popup = function (_React$Component) {
   return Popup;
 }(_react2.default.Component);
 
+//? means have a value and : means false
+//{this.props.children} means every contents which is inside the Popup tag in LoginPupup going here
 // this.props.hidePopup was passed by the Popup in Navbar/index.js
 //we dont have the pop up come up straight away because when we first render the Navbar, the popupStatus is false, so whe you click on login, we execute the showPopup, which set the status to true, and then it pass that status to the Popup Component.
 //  this.props.status? equals true, renderPopupContent, otherwise false.
@@ -21388,6 +21392,7 @@ var Navbar = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this));
 
     _this.showPopup = function () {
+
       _this.setState({ popupStatus: true });
     };
 
@@ -21400,8 +21405,6 @@ var Navbar = function (_React$Component) {
     };
     return _this;
   }
-  // use fat arrow to be able to call the functions in render.
-
 
   _createClass(Navbar, [{
     key: 'renderProductSearch',
@@ -21427,9 +21430,7 @@ var Navbar = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         { className: 'right-side' },
-        this.props.user ?
-        //display the post link here
-        _react2.default.createElement(
+        this.props.user ? _react2.default.createElement(
           'section',
           null,
           _react2.default.createElement(
@@ -21477,6 +21478,8 @@ var Navbar = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Navbar;
+
+//we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar
 
 },{"./LoginPopup":184,"./PostPopup":186,"react":182}],188:[function(require,module,exports){
 "use strict";

@@ -3,7 +3,7 @@ import Popup from './Popup';
 
 class PostPopup extends React.Component {
   handlePost = () => {
-  }
+  };
 
   render() {
     return (
