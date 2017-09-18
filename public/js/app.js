@@ -21815,7 +21815,16 @@ var ProductPopup = function (_React$Component) {
           name: 'Mina',
           avatar: '/img/Mina.jpg'
         }
-      }
+      },
+      comments: [{
+        name: "Mina",
+        avatar: "/img/Mina.jpg",
+        content: "I love this product"
+      }, {
+        name: "Miriam",
+        avatar: "/img/Miriam.jpg",
+        content: "Me too"
+      }]
     };
     return _this;
   }
@@ -21882,7 +21891,8 @@ var ProductPopup = function (_React$Component) {
           { className: 'post-comment' },
           _react2.default.createElement('img', { className: 'medium-avatar', src: '/img/Mina.jpg' }),
           _react2.default.createElement('input', { placeholder: 'What do you think about this product?' })
-        )
+        ),
+        this.renderComments()
       );
     }
   }, {
@@ -21896,6 +21906,35 @@ var ProductPopup = function (_React$Component) {
           null,
           this.renderBodyDiscussion()
         )
+      );
+    }
+  }, {
+    key: 'renderComments',
+    value: function renderComments() {
+      return _react2.default.createElement(
+        'ul',
+        { className: 'comment-list' },
+        this.state.comments.map(function (comment, idx) {
+          return _react2.default.createElement(
+            'li',
+            { key: idx },
+            _react2.default.createElement('img', { className: 'medium-avatar', src: comment.avatar }),
+            _react2.default.createElement(
+              'section',
+              null,
+              _react2.default.createElement(
+                'strong',
+                null,
+                comment.name
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                comment.content
+              )
+            )
+          );
+        })
       );
     }
   }, {
@@ -21914,6 +21953,7 @@ var ProductPopup = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ProductPopup;
+//line91: we are going to use a map function to look through an array of comments and for every item inside, we need to identify the key, in this case we will use the index at the map function.
 
 },{"../Navbar/Popup":185,"react":182}],192:[function(require,module,exports){
 'use strict';

@@ -17,7 +17,19 @@ class ProductPopup extends React.Component {
           name: 'Mina',
           avatar: '/img/Mina.jpg'
         }
-      }
+      },
+      comments: [
+        {
+          name:"Mina",
+          avatar: "/img/Mina.jpg",
+          content: "I love this product"
+        },
+        {
+          name:"Miriam",
+          avatar: "/img/Miriam.jpg",
+          content: "Me too"
+        }
+      ]
     }
   }
 
@@ -57,6 +69,7 @@ class ProductPopup extends React.Component {
          <img className="medium-avatar" src="/img/Mina.jpg"/>
          <input placeholder="What do you think about this product?"/>
        </section>
+       {this.renderComments()}
      </section>
    );
   }
@@ -68,6 +81,26 @@ class ProductPopup extends React.Component {
           {this.renderBodyDiscussion()}
         </main>
       </section>
+    );
+  }
+
+  renderComments() {
+    return (
+      <ul className="comment-list">
+        {
+          this.state.comments.map(function(comment, idx) {
+            return (
+              <li key={idx}>
+                <img className="medium-avatar" src={comment.avatar}/>
+                <section>
+                  <strong>{comment.name}</strong>
+                  <p>{comment.content}</p>
+                </section>
+              </li>
+            )
+          })
+        }
+      </ul>
     );
   }
 
@@ -83,3 +116,4 @@ class ProductPopup extends React.Component {
 
 
 export default ProductPopup;
+  //line91: we are going to use a map function to look through an array of comments and for every item inside, we need to identify the key, in this case we will use the index at the map function.
