@@ -50,7 +50,6 @@ class Navbar extends React.Component {
           {this.renderUser()}
         </section>
         <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
-        <PostPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
       </section>
 
     );

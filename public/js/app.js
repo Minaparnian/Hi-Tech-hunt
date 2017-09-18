@@ -21300,8 +21300,7 @@ var Navbar = function (_React$Component) {
           this.renderLogo(),
           this.renderUser()
         ),
-        _react2.default.createElement(_LoginPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup }),
-        _react2.default.createElement(PostPopup, { status: this.state.popupStatus, hidePopup: this.hidePopup })
+        _react2.default.createElement(_LoginPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
       );
     }
   }]);
