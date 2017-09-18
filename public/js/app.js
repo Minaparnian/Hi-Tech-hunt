@@ -21265,7 +21265,7 @@ var PostPopup = function (_React$Component) {
         _extends({}, this.props, { style: 'post-popup' }),
         _react2.default.createElement(
           'header',
-          null,
+          { className: 'post-header' },
           ' Post a new product'
         ),
         _react2.default.createElement(
