@@ -8,7 +8,7 @@ class Popup extends React.Component {
 
           <img src="/img/close.png" onClick={this.props.hidePopup}/>
         </section>
-        <section className="popup-content login-popup">
+        <section className={"popup-content " + this.props.style}>
           <section>{this.props.children}</section>
         </section>
 
