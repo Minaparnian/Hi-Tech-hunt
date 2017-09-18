@@ -169,13 +169,10 @@ a {
 }
 
 /*------------------------------ NAVBAR ------------------------------*/
-
-
 .login-btn {
 	padding-top: 9px;
 	color: #999999;
 	font-weight: 500;
-	font-size: 11px;
 	display: block;
 }
 
@@ -188,11 +185,9 @@ a {
 	padding: 10px 10px 5px;
 }
 
-
 .navbar .left-side {
 	float: left;
 }
-
 .navbar .left-side .product-search {
 	background-color: #f2f2f2;
 	color: #999999;
@@ -208,9 +203,7 @@ a {
 
 .navbar .right-side {
 	float: right;
-
 }
-
 
 .navbar .right-side section > * {
 	display: inline-block;
@@ -218,14 +211,11 @@ a {
 	margin-left: 15px;
 }
 
-
 .navbar .right-side a:hover {
 	color: #da552f;
 }
 
-
 /*------------------------------ POPUP ------------------------------*/
-
 .popup .popup-wrap {
 	position: fixed;
 	width: 100%;
@@ -234,9 +224,7 @@ a {
 	left: 0;
 	background-color: white;
 	opacity: 0.97;
-
 }
-
 
 .popup .popup-wrap img {
 	position: fixed;
@@ -244,7 +232,6 @@ a {
 	left: 40px;
 	cursor: pointer;
 }
-
 
 .popup .popup-content {
 	position: fixed;
@@ -263,15 +250,14 @@ button:hover {
 	cursor: pointer;
 }
 
-
+/*it doesnt have a space between .popup-content and .login-popup because they are in the same level */
 .popup-content.login-popup {
 	text-align: center;
 	width: 400px;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%,-50%);
 }
-
 
 .facebook-btn {
 	color: white;

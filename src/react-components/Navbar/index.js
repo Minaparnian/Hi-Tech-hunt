@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginPopup from './LoginPopup';
+import PostPopup from './PostPopup';
 
 class Navbar extends React.Component {
   constructor(){
@@ -10,7 +11,7 @@ class Navbar extends React.Component {
   }
 
   showPopup = () => {
-    {/* we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar */}
+
     this.setState({ popupStatus: true }) ;
   };
 
@@ -36,7 +37,23 @@ class Navbar extends React.Component {
   renderUser(){
     return (
       <section className="right-side">
-        <a href="#" onClick={this.showPopup} className="login-btn">LOGIN</a>
+        {
+          this.props.user
+          ?
+
+          <section>
+            <span>
+              <a href="#" onClick={this.showPopup} className="login-btn">POST</a>
+            </span>
+            <PostPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+          </section>
+          :
+
+          <section>
+            <a href="#" onClick={this.showPopup} className="login-btn">LOGIN</a>
+            <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+          </section>
+        }
       </section>
     );
   }
@@ -49,7 +66,6 @@ class Navbar extends React.Component {
           {this.renderLogo()}
           {this.renderUser()}
         </section>
-        <LoginPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
       </section>
 
     );
@@ -57,3 +73,5 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
+
+ //we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar
