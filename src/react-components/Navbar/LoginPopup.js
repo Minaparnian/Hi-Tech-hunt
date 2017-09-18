@@ -16,5 +16,6 @@ class LoginPopup extends React.Component {
   }
 }
 
-
 export default LoginPopup;
+
+//{...this.props} it is a shortcode to write something like status={this.props.status} hidePopup={this.props.hidePopup}

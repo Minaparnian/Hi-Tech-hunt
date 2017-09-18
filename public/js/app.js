@@ -21104,12 +21104,20 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
+<<<<<<< HEAD
           'Login To Join The Community'
+=======
+          'Login to Join The Comnunity'
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
         ),
         _react2.default.createElement(
           'p',
           null,
+<<<<<<< HEAD
           'Codehunt is the Community to share geek out about the latest code, podcast and news. Join us :)'
+=======
+          'CodeHunt is a community to share and geek out about the latest code, podcast and news. Join us :)'
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
         ),
         _react2.default.createElement(
           'button',
@@ -21119,7 +21127,11 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'p',
           null,
+<<<<<<< HEAD
           'We will never post to your facebook without permission'
+=======
+          'We\'ll never post to Facebook without your permission.'
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
         )
       );
     }
@@ -21130,6 +21142,11 @@ var LoginPopup = function (_React$Component) {
 
 exports.default = LoginPopup;
 
+<<<<<<< HEAD
+=======
+//{...this.props} it is a shortcode to write something like status={this.props.status} hidePopup={this.props.hidePopup}
+
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
 },{"./Popup":185,"react":182}],185:[function(require,module,exports){
 "use strict";
 
@@ -21169,8 +21186,12 @@ var Popup = function (_React$Component) {
         _react2.default.createElement(
           "section",
           { className: "popup-wrap" },
+<<<<<<< HEAD
           _react2.default.createElement("img", { src: "/img/close.png",
             onClick: this.props.hidePopup })
+=======
+          _react2.default.createElement("img", { src: "/img/close.png", onClick: this.props.hidePopup })
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
         ),
         _react2.default.createElement(
           "section",
@@ -21197,6 +21218,16 @@ var Popup = function (_React$Component) {
   return Popup;
 }(_react2.default.Component);
 
+<<<<<<< HEAD
+=======
+// this.props.hidePopup was passed by the Popup in Navbar/index.js
+//we dont have the pop up come up straight away because when we first render the Navbar, the popupStatus is false, so whe you click on login, we execute the showPopup, which set the status to true, and then it pass that status to the Popup Component.
+//  this.props.status? equals true, renderPopupContent, otherwise false.
+//when we close the button, we run the hidePopup function that put the status to false and stop rending Popup Component
+//this.props.children will show everything we have between open and close tags of Popup(in this case, it will show the Popup under LoginPopup class.)
+
+
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
 exports.default = Popup;
 
 },{"react":182}],186:[function(require,module,exports){
@@ -21245,7 +21276,11 @@ var Navbar = function (_React$Component) {
     };
     return _this;
   }
+<<<<<<< HEAD
   //{/* we have use syntax of = and => to showPopup function to render in es6 and say showPopup is the property of Navbar */}
+=======
+  // use fat arrow to be able to call the functions in render.
+>>>>>>> ac573bf42d764cac8b9f5e9f05933f74a47d90f9
 
 
   _createClass(Navbar, [{
