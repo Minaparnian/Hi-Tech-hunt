@@ -42,11 +42,11 @@ class Navbar extends React.Component {
         {
           this.props.user
           ?
-
+          // display Post link here
           <section>
             <span>
               <a href="#" onClick={this.showPopup} className="login-btn">POST</a>
-              <ProfileMenu />
+            <ProfileMenu user={this.props.user} />
             </span>
             <PostPopup status={this.state.popupStatus} hidePopup={this.hidePopup}/>
 

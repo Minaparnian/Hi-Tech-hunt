@@ -11,7 +11,7 @@ class App extends React.Component {
     super();
   }
 
-// the static functions belong to alt function, so the first one it will tell you which store it will like to connect you and the second one will get the own state variable of that store.
+// the static functions belong to alt structure, so the first one it will tell you which store it will like to connect to, and the second one will get the own state variable of that store.
   static getStores() {
     return [ProductStore];
   }
@@ -23,6 +23,7 @@ class App extends React.Component {
   render(){
     return (
       <section>
+        {/* this.propd.user can check if the user is connected or not in ProductStore */}
         <Navbar user={this.props.user}/>
         <HomePage/>
       </section>
