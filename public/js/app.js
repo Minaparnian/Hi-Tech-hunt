@@ -46831,7 +46831,7 @@ var ProfileMenu = function (_React$Component) {
       return _react2.default.createElement(
         "section",
         { className: "profile-menu" },
-        _react2.default.createElement("img", { src: "/img/Miriam.jpg", onClick: this.handleClick, className: "profile-btn medium-avatar", ref: "profileBtn" }),
+        _react2.default.createElement("img", { src: "/img/leo.jpeg", onClick: this.handleClick, className: "profile-btn medium-avatar", ref: "profileBtn" }),
         this.state.showProfileNav ? this.renderProfileNav() : null
       );
     }
@@ -47206,17 +47206,17 @@ var ProductPopup = function (_React$Component) {
         upvote: 278,
         description: 'Code for startups',
         maker: {
-          name: 'Mina',
-          avatar: '/img/Mina.jpg'
+          name: 'Leo',
+          avatar: '/img/leo.jpeg'
         }
       },
       comments: [{
-        name: "Mina",
-        avatar: "/img/Mina.jpg",
+        name: "Leo",
+        avatar: "/img/leo.jpeg",
         content: "I love this product"
       }, {
-        name: "Miriam",
-        avatar: "/img/Miriam.jpg",
+        name: "Hieu",
+        avatar: "/img/hieo.jpeg",
         content: "Me too"
       }]
     };
@@ -47283,7 +47283,7 @@ var ProductPopup = function (_React$Component) {
         _react2.default.createElement(
           'section',
           { className: 'post-comment' },
-          _react2.default.createElement('img', { className: 'medium-avatar', src: '/img/Mina.jpg' }),
+          _react2.default.createElement('img', { className: 'medium-avatar', src: '/img/leo.jpeg' }),
           _react2.default.createElement('input', { placeholder: 'What do you think about this product?' })
         ),
         this.renderComments()

@@ -14,19 +14,19 @@ class ProductPopup extends React.Component {
         upvote: 278,
         description: 'Code for startups',
         maker: {
-          name: 'Mina',
-          avatar: '/img/Mina.jpg'
+          name: 'Leo',
+          avatar: '/img/leo.jpeg'
         }
       },
       comments: [
         {
-          name:"Mina",
-          avatar: "/img/Mina.jpg",
+          name:"Leo",
+          avatar: "/img/leo.jpeg",
           content: "I love this product"
         },
         {
-          name:"Miriam",
-          avatar: "/img/Miriam.jpg",
+          name:"Hieu",
+          avatar: "/img/hieo.jpeg",
           content: "Me too"
         }
       ]
@@ -66,7 +66,7 @@ class ProductPopup extends React.Component {
      <section className="discussion">
        <h2>Discussion</h2>
        <section className="post-comment">
-         <img className="medium-avatar" src="/img/Mina.jpg"/>
+         <img className="medium-avatar" src="/img/leo.jpeg"/>
          <input placeholder="What do you think about this product?"/>
        </section>
        {this.renderComments()}
