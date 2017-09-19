@@ -2,8 +2,9 @@ import React from 'react';
 import ProductList from '../Product/ProductList'
 import Firebase from 'firebase';
 
+var firebase = require("firebase");
 var config = {
-  apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
+  apiKey: "FIREBASE_API_KEY",
   authDomain: "aus-tec-hunt.firebaseapp.com",
   databaseURL: "https://aus-tec-hunt.firebaseio.com/",
   storageBucket: "aus-tec-hunt.appspot.com"

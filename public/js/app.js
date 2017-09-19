@@ -46394,8 +46394,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var firebase = require("firebase");
 var config = {
-  apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
+  apiKey: "FIREBASE_API_KEY",
   authDomain: "aus-tec-hunt.firebaseapp.com",
   databaseURL: "https://aus-tec-hunt.firebaseio.com/",
   storageBucket: "aus-tec-hunt.appspot.com"
