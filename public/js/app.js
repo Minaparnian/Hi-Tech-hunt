@@ -22420,14 +22420,6 @@ var ProductList = function (_React$Component) {
           upvote: this.props.productList[1].upvote,
           description: this.props.productList[1].description,
           maker: this.props.productList[1].maker
-        }),
-        _react2.default.createElement(_ProductItem2.default, {
-          name: this.props.productList[2].name,
-          link: this.props.productList[2].link,
-          media: this.props.productList[2].media,
-          upvote: this.props.productList[2].upvote,
-          description: this.props.productList[2].description,
-          maker: this.props.productList[2].maker
         })
       );
     }
