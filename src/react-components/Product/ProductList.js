@@ -7,6 +7,9 @@ class ProductList extends React.Component {
     console.warn('products!', this.props.productList);
   }
   render () {
+    console.log("*********************");
+    console.log(this.props);
+
     return (
       <ul className="product-list">
           <ProductItem
@@ -26,6 +29,7 @@ class ProductList extends React.Component {
               description = {this.props.productList[1].description}
               maker = {this.props.productList[1].maker}
               />
+
 
       </ul>
 
