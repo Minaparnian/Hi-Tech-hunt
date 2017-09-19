@@ -2,9 +2,9 @@ import React from 'react';
 import ProductList from '../Product/ProductList'
 import Firebase from 'firebase';
 
-var firebase = require("firebase");
+
 var config = {
-  apiKey: "FIREBASE_API_KEY",
+  apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
   authDomain: "aus-tec-hunt.firebaseapp.com",
   databaseURL: "https://aus-tec-hunt.firebaseio.com/",
   storageBucket: "aus-tec-hunt.appspot.com"
@@ -17,14 +17,15 @@ class HomePage extends React.Component {
   constructor(){
     super();
     this.state = {
-      productList: []
+      productList: null
     };
 
     Firebase.database().ref('products').on('value', (snapshot) => {
+      // debugger;
       var products = snapshot.val();
 
       this.setState({
-        productList: products
+        productList: products.slice(1)
       })
     });
   }

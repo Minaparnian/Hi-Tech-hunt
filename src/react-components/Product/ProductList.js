@@ -2,6 +2,10 @@ import React from 'react';
 import ProductItem from './ProductItem';
 
 class ProductList extends React.Component {
+  constructor(props) {
+    super(props);
+    console.warn('products!', this.props.productList);
+  }
   render () {
     console.log("*********************");
     console.log(this.props);
@@ -9,7 +13,6 @@ class ProductList extends React.Component {
     return (
       <ul className="product-list">
           <ProductItem
-            id = {this.props.productList[0].id}
             name = {this.props.productList[0].name}
             link = {this.props.productList[0].link}
             media = {this.props.productList[0].media}
@@ -19,7 +22,6 @@ class ProductList extends React.Component {
             />
 
           <ProductItem
-              id = {this.props.productList[1].id}
               name = {this.props.productList[1].name}
               link = {this.props.productList[1].link}
               media = {this.props.productList[1].media}
@@ -27,6 +29,15 @@ class ProductList extends React.Component {
               description = {this.props.productList[1].description}
               maker = {this.props.productList[1].maker}
               />
+
+              <ProductItem
+                  name = {this.props.productList[2].name}
+                  link = {this.props.productList[2].link}
+                  media = {this.props.productList[2].media}
+                  upvote = {this.props.productList[2].upvote}
+                  description = {this.props.productList[2].description}
+                  maker = {this.props.productList[2].maker}
+                  />
       </ul>
 
     );

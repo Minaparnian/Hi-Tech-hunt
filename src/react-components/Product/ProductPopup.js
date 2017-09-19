@@ -26,7 +26,7 @@ class ProductPopup extends React.Component {
         },
         {
           name:"Hieu",
-          avatar: "/img/hieo.jpeg",
+          avatar: "/img/hieu.jpeg",
           content: "Me too"
         }
       ]
