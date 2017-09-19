@@ -10,6 +10,19 @@
 </head>
 <body>
   <div id='root'></div>
+  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
+      authDomain: "aus-tec-hunt.firebaseapp.com",
+      databaseURL: "https://aus-tec-hunt.firebaseio.com",
+      projectId: "aus-tec-hunt",
+      storageBucket: "aus-tec-hunt.appspot.com",
+      messagingSenderId: "349262103426"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="/js/app.js"></script>
 </body>
 </html>

@@ -1,42 +1,33 @@
 import React from 'react';
 import ProductList from '../Product/ProductList'
+import Firebase from 'firebase';
 
+var config = {
+  apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
+  authDomain: "aus-tec-hunt.firebaseapp.com",
+  databaseURL: "https://aus-tec-hunt.firebaseio.com/",
+  storageBucket: "aus-tec-hunt.appspot.com"
+};
+
+Firebase.initializeApp(config);
 
 
 class HomePage extends React.Component {
   constructor(){
     super();
     this.state = {
-      productList: [
-        {
-          id: 1,
-          name: 'Codeacademy',
-          link: 'https://codeacademy.com',
-          media: '/img/codecademy.jpeg',
-          upvote: 169,
-          description: 'Code for anyone',
-          maker: {
-            name: 'Miriam',
-            avatar: '/img/Miriam.jpg'
-          }
+      productList: []
+    };
 
-        },
-        {
-          id: 2,
-          name: 'Code4Startup',
-          link: 'https://code4startup.com',
-          media: '/img/code4startup.jpeg',
-          upvote: 278,
-          description: 'Code for startups',
-          maker: {
-            name: 'Mina',
-            avatar: '/img/Mina.jpg'
-          }
+    Firebase.database().ref('products').on('value', (snapshot) => {
+      var products = snapshot.val();
 
-        }
-      ]
-    }
+      this.setState({
+        productList: products
+      })
+    });
   }
+
   render(){
     return(
       <section>
@@ -56,6 +47,5 @@ class HomePage extends React.Component {
     );
   }
 }
-
 
 export default HomePage;
