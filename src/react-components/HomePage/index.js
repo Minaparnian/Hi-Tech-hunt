@@ -1,33 +1,34 @@
 import React from 'react';
 import ProductList from '../Product/ProductList'
-import Firebase from 'firebase';
 
+import connectToStores from 'alt-utils/lib/connectToStores';
+import ProductStore from '../../stores/ProductStore';
+import Actions from '../../actions';
 
-var config = {
-  apiKey: "AIzaSyD8Vk2Cgn7KJWJLid1dYtMx6jzZnlVFi-o",
-  authDomain: "aus-tec-hunt.firebaseapp.com",
-  databaseURL: "https://aus-tec-hunt.firebaseio.com/",
-  storageBucket: "aus-tec-hunt.appspot.com"
-};
-
-Firebase.initializeApp(config);
-
-
+@connectToStores
 class HomePage extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state = {
-      productList: null
-    };
+    // this.state = {
+    //   productList: []
+    // }
+    //
+    // Firebase.database().ref('products').on('value', (snapshot) => {
+    //   var products = snapshot.val();
+    //
+    //   this.setState({
+    //     productList: products
+    //   })
+    // });
+    Actions.getProducts();
+  }
 
-    Firebase.database().ref('products').on('value', (snapshot) => {
-      // debugger;
-      var products = snapshot.val();
+  static getStores() {
+    return [ProductStore];
+  }
 
-      this.setState({
-        productList: products.slice(1)
-      })
-    });
+  static getPropsFromStores() {
+    return ProductStore.getState();
   }
 
   render(){
@@ -38,16 +39,20 @@ class HomePage extends React.Component {
           </header>
 
           <section>
-            <section className="container">
-              {
-                this.state.productList ? <ProductList productList={this.state.productList}/> : null
-              }
-            </section>
-          </section>
-      </section>
+           <section className="container">
+             {
+               this.props.products
+               ?
+              //  we can get this.props.products because this page is connected to ProductStore where we have products state which contain all the list of products.
+               <ProductList productList={this.props.products}/>
+               :
+               null
+             }
+           </section>
+         </section>
+       </section>
+     );
+   }
+ }
 
-    );
-  }
-}
-
-export default HomePage;
+ export default HomePage;

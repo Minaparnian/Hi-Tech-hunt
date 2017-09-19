@@ -31,8 +31,8 @@ class ProfileMenu extends React.Component {
   componentWillMount() {
     window.addEventListener("click", this.handleClickOutside, false);
   }
-
-  componentWillUnMount() {
+  // keep this one! needs to be componentWillUnmount
+  componentWillUnmount() {
     window.removeEventListener("click", this.handleClickOutside, false);
   }
 

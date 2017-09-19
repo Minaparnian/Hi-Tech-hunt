@@ -5,13 +5,21 @@ import {decorate, bind}  from 'alt-utils/lib/decorators';
 @decorate(alt)
 class ProductStore {
   constructor() {
-    this.state = {user: null};
+    this.state = {
+      user: null,
+      products: []
+    };
   }
 
   // this means whenever a user login or logout, products dont need to know about that.
   @bind(Actions.login, Actions.initSession, Actions.logout)
   setUser(user) {
     this.setState({user: user});
+  }
+
+  @bind(Actions.getProducts)
+  getProducts(products) {
+    this.setState({products: products});
   }
 
 }
