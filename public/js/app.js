@@ -21815,7 +21815,6 @@ var ProductPopup = function (_React$Component) {
           name: 'Mina',
           avatar: '/img/Mina.jpg'
         }
-
       },
       comments: [{
         name: "Mina",
@@ -21954,6 +21953,7 @@ var ProductPopup = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ProductPopup;
+//line91: we are going to use a map function to look through an array of comments and for every item inside, we need to identify the key, in this case we will use the index at the map function.
 
 },{"../Navbar/Popup":185,"react":182}],192:[function(require,module,exports){
 'use strict';

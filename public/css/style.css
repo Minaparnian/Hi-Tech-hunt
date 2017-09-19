@@ -335,47 +335,44 @@ button:hover {
 	width: 100%;
 }
 
-
-/* PRODUCT POPUP*/
+/* POST POPUP*/
 
 .product-popup {
 	width: 80%;
 	height: 100%;
-	top: 0;
 	right: 0;
+	top: 0;
 	background-color: white;
 	overflow: scroll;
 	border-left: 1px solid #f0efef;
 }
 
-.product-popup header{
+.product-popup header {
 	text-align: center;
 	background-color: #5e9aee;
 	background-position: 50% 50%;
 	background-size: cover;
-	background-repeat: none;
-
+	background-repeat: no-repeat;
 }
 
 .product-popup header .header-shadow {
 	background-color: transparent;
-	background-image: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(0, 36, 61, 0.6) 50%);
+	background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
 	padding: 45px;
 }
 
-.product-popup header .header-shadow h1 {
+.product-popup header .header-shadow > h1 {
 	font-size: 40px;
 	font-weight: 900;
 	color: white;
 	line-height: 48px;
 }
 
-.product-popup header .header-shadow p {
-  line-height: 55px;
+.product-popup header .header-shadow > p {
+	line-height: 55px;
 	font-size: 18px;
 	color: #cdd1d3;
 }
-
 
 .product-popup header .header-shadow > section > * {
 	display: inline-block;
@@ -390,17 +387,18 @@ button:hover {
 	color: white;
 }
 
-
 .product-popup .product-popup-body main .discussion {
 	margin: 50px auto;
 	width: 80%;
+
 }
 
 .product-popup .product-popup-body main .discussion h2 {
 	color: #999;
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 }
 
+/*-webkit-flex: Safari 6.1+ */
 .product-popup .product-popup-body main .discussion .post-comment{
 	margin: 10px 0;
 	padding: 20px;
@@ -408,18 +406,15 @@ button:hover {
 	border-radius: 4px;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-align-items: center;
+	-webkit-align-tems: center;
 	align-items: center;
 }
 
-
-.product-popup .product-popup-body main .discussion
-.post-comment img {
+.product-popup .product-popup-body main .discussion .post-comment img {
 	margin-right: 15px;
 }
 
-.product-popup .product-popup-body main .discussion
-.post-comment input {
+.product-popup .product-popup-body main .discussion .post-comment input {
 	padding: 10px;
 	font-size: 15px;
 	width: 90%;
@@ -446,10 +441,10 @@ button:hover {
 	margin-bottom: 15px;
 }
 
-
 .comment-list li > section p {
 	font-size: 14px;
 }
+
 
 /*------------------------------ PFOFILE MENU ------------------------------*/
 
