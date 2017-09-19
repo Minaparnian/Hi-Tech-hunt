@@ -23728,14 +23728,15 @@ var HomePage = (0, _connectToStores2.default)(_class = function (_React$Componen
     _classCallCheck(this, HomePage);
 
     // this.state = {
-    //   productList: []
+    //   productList: null
     // }
     //
     // Firebase.database().ref('products').on('value', (snapshot) => {
+    //  debugger;
     //   var products = snapshot.val();
     //
     //   this.setState({
-    //     productList: products
+    //     productList: products.slice(1)
     //   })
     // });
     var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
@@ -24462,6 +24463,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -24483,39 +24486,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ProductList = function (_React$Component) {
   _inherits(ProductList, _React$Component);
 
-  function ProductList(props) {
+  function ProductList() {
     _classCallCheck(this, ProductList);
 
-    var _this = _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).call(this, props));
-
-    console.warn('products!', _this.props.productList);
-    return _this;
+    return _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).apply(this, arguments));
   }
 
   _createClass(ProductList, [{
     key: 'render',
     value: function render() {
-      console.log("*********************");
-      console.log(this.props);
-
       return _react2.default.createElement(
         'ul',
         { className: 'product-list' },
-        _react2.default.createElement(_ProductItem2.default, {
-          name: this.props.productList[0].name,
-          link: this.props.productList[0].link,
-          media: this.props.productList[0].media,
-          upvote: this.props.productList[0].upvote,
-          description: this.props.productList[0].description,
-          maker: this.props.productList[0].maker
-        }),
-        _react2.default.createElement(_ProductItem2.default, {
-          name: this.props.productList[1].name,
-          link: this.props.productList[1].link,
-          media: this.props.productList[1].media,
-          upvote: this.props.productList[1].upvote,
-          description: this.props.productList[1].description,
-          maker: this.props.productList[1].maker
+        this.props.productList.map(function (item, idx) {
+          return _react2.default.createElement(_ProductItem2.default, _extends({ key: idx }, item));
         })
       );
     }

@@ -10,14 +10,15 @@ class HomePage extends React.Component {
   constructor() {
     super();
     // this.state = {
-    //   productList: []
+    //   productList: null
     // }
     //
     // Firebase.database().ref('products').on('value', (snapshot) => {
+    //  debugger;
     //   var products = snapshot.val();
     //
     //   this.setState({
-    //     productList: products
+    //     productList: products.slice(1)
     //   })
     // });
     Actions.getProducts();
