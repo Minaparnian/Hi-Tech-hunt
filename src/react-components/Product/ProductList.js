@@ -3,6 +3,9 @@ import ProductItem from './ProductItem';
 
 class ProductList extends React.Component {
   render () {
+    console.log("*********************");
+    console.log(this.props);
+
     return (
       <ul className="product-list">
           <ProductItem
