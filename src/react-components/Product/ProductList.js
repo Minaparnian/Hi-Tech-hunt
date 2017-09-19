@@ -30,14 +30,7 @@ class ProductList extends React.Component {
               maker = {this.props.productList[1].maker}
               />
 
-              <ProductItem
-                  name = {this.props.productList[2].name}
-                  link = {this.props.productList[2].link}
-                  media = {this.props.productList[2].media}
-                  upvote = {this.props.productList[2].upvote}
-                  description = {this.props.productList[2].description}
-                  maker = {this.props.productList[2].maker}
-                  />
+              
       </ul>
 
     );
