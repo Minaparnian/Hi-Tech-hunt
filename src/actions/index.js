@@ -105,6 +105,12 @@ class Actions {
     }
   }
 
+  addComment(productId, comment) {
+    return (dispatch) => {
+      Firebase.database().ref('/comments/'+productId).push(comment);
+    }
+  }
+
 }
 
 export default alt.createActions(Actions);

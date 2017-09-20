@@ -40784,6 +40784,13 @@ var Actions = function () {
         });
       };
     }
+  }, {
+    key: 'addComment',
+    value: function addComment(productId, comment) {
+      return function (dispatch) {
+        _firebase2.default.database().ref('/comments/' + productId).push(comment);
+      };
+    }
   }]);
 
   return Actions;
@@ -41659,6 +41666,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -41671,6 +41680,18 @@ var _Upvote = require('./Upvote');
 
 var _Upvote2 = _interopRequireDefault(_Upvote);
 
+var _connectToStores = require('alt-utils/lib/connectToStores');
+
+var _connectToStores2 = _interopRequireDefault(_connectToStores);
+
+var _ProductStore = require('../../stores/ProductStore');
+
+var _ProductStore2 = _interopRequireDefault(_ProductStore);
+
+var _actions = require('../../actions');
+
+var _actions2 = _interopRequireDefault(_actions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41679,13 +41700,25 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ProductPopup = function (_React$Component) {
+var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Component) {
   _inherits(ProductPopup, _React$Component);
 
   function ProductPopup() {
     _classCallCheck(this, ProductPopup);
 
     var _this = _possibleConstructorReturn(this, (ProductPopup.__proto__ || Object.getPrototypeOf(ProductPopup)).call(this));
+
+    _this.handleComment = function (e) {
+      if (e.keyCode === 13 && e.target.value.length > 0) {
+        var comment = {
+          content: e.target.value,
+          name: _this.props.user.name,
+          avatar: _this.props.user.avatar
+        };
+        _actions2.default.addComment(_this.props.pid, comment);
+        e.target.value = null;
+      }
+    };
 
     _this.state = {
       comments: [{
@@ -41744,12 +41777,12 @@ var ProductPopup = function (_React$Component) {
           null,
           'Discussion'
         ),
-        _react2.default.createElement(
+        this.props.user ? _react2.default.createElement(
           'section',
           { className: 'post-comment' },
-          _react2.default.createElement('img', { className: 'medium-avatar', src: '/img/leo.jpeg' }),
-          _react2.default.createElement('input', { placeholder: 'What do you think about this product?' })
-        ),
+          _react2.default.createElement('img', { className: 'medium-avatar', src: this.props.user.avatar }),
+          _react2.default.createElement('input', { placeholder: 'What do you think about this product?', onKeyUp: this.handleComment })
+        ) : null,
         this.renderComments()
       );
     }
@@ -41805,15 +41838,25 @@ var ProductPopup = function (_React$Component) {
         this.renderBody()
       );
     }
+  }], [{
+    key: 'getStores',
+    value: function getStores() {
+      return [_ProductStore2.default];
+    }
+  }, {
+    key: 'getPropsFromStores',
+    value: function getPropsFromStores() {
+      return _ProductStore2.default.getState();
+    }
   }]);
 
   return ProductPopup;
-}(_react2.default.Component);
+}(_react2.default.Component)) || _class;
 
 exports.default = ProductPopup;
 //line91: we are going to use a map function to look through an array of comments and for every item inside, we need to identify the key, in this case we will use the index at the map function.
 
-},{"../Navbar/Popup":210,"./Upvote":217,"react":204}],217:[function(require,module,exports){
+},{"../../actions":206,"../../stores/ProductStore":219,"../Navbar/Popup":210,"./Upvote":217,"alt-utils/lib/connectToStores":1,"react":204}],217:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
