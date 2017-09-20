@@ -19,7 +19,7 @@ class ProductPopup extends React.Component {
   static getPropsFromStores() {
     return ProductStore.getState();
   }
-
+  //the problem was insted of nextProps.status was nextStae.status
   shouldComponentUpdate(nextProps, nextState) {
     // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
     if (nextProps.status && this.props.status != nextProps.status) {
