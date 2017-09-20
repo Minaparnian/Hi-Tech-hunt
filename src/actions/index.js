@@ -111,6 +111,24 @@ class Actions {
     }
   }
 
-}
 
-export default alt.createActions(Actions);
+  getComments(productId) {
+     return (dispatch) => {
+       var commentRef = Firebase.database().ref('comments/'+productId);
+
+       commentRef.on('value', function(snapshot) {
+         var commentsValue = snapshot.val();
+         var comments = _(commentsValue).keys().map((commentKey) => {
+           var item = _.clone(commentsValue[commentKey]);
+           item.key = commentKey;
+           return item;
+         })
+         .value();
+         dispatch(comments);
+       });
+     }
+   }
+
+ }
+
+ export default alt.createActions(Actions);
