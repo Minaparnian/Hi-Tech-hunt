@@ -6,6 +6,8 @@ class ProductList extends React.Component {
     return (
       <ul className="product-list">
         {
+
+          //you can use map function only the product list is an array
           this.props.productList.map(function(item, idx) {
             return <ProductItem key={idx} {...item}/>
           })

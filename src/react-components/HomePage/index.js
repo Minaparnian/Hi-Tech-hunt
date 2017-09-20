@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductList from '../Product/ProductList'
-
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
