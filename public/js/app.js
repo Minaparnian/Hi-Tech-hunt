@@ -41743,6 +41743,8 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
 
   _createClass(ProductPopup, [{
     key: 'shouldComponentUpdate',
+
+    //the problem was insted of nextProps.status was nextStae.status
     value: function shouldComponentUpdate(nextProps, nextState) {
       // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
       if (nextProps.status && this.props.status != nextProps.status) {
