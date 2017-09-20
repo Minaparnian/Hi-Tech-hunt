@@ -23660,6 +23660,13 @@ var Actions = function () {
         });
       };
     }
+  }, {
+    key: 'addProduct',
+    value: function addProduct(product) {
+      return function (dispatch) {
+        _firebase2.default.database().ref('products').push(product);
+      };
+    }
   }]);
 
   return Actions;
@@ -23974,6 +23981,10 @@ var _Popup = require('./Popup');
 
 var _Popup2 = _interopRequireDefault(_Popup);
 
+var _actions = require('../../actions');
+
+var _actions2 = _interopRequireDefault(_actions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23996,7 +24007,22 @@ var PostPopup = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PostPopup.__proto__ || Object.getPrototypeOf(PostPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handlePost = function () {}, _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PostPopup.__proto__ || Object.getPrototypeOf(PostPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handlePost = function () {
+      // debugger;
+      var newProduct = {
+        name: _this.refs.name.value,
+        link: _this.refs.link.value,
+        description: _this.refs.description.value,
+        media: _this.refs.media.value,
+        upvote: 0,
+        maker: {
+          name: _this.props.user.name,
+          avatar: _this.props.user.avatar
+        }
+      };
+
+      _actions2.default.addProduct(newProduct);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(PostPopup, [{
@@ -24030,7 +24056,7 @@ var PostPopup = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   null,
-                  _react2.default.createElement('input', { placeholder: 'Enter product\'s name' })
+                  _react2.default.createElement('input', { placeholder: 'Enter product\'s name', ref: 'name' })
                 )
               ),
               _react2.default.createElement(
@@ -24044,7 +24070,7 @@ var PostPopup = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   null,
-                  _react2.default.createElement('input', { placeholder: 'Enter product\'s description' })
+                  _react2.default.createElement('input', { placeholder: 'Enter product\'s description', ref: 'description' })
                 )
               ),
               _react2.default.createElement(
@@ -24058,7 +24084,7 @@ var PostPopup = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   null,
-                  _react2.default.createElement('input', { placeholder: 'https://www...' })
+                  _react2.default.createElement('input', { placeholder: 'https://www...', ref: 'link' })
                 )
               ),
               _react2.default.createElement(
@@ -24072,7 +24098,7 @@ var PostPopup = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   null,
-                  _react2.default.createElement('input', { placeholder: 'Place a direct link to an image' })
+                  _react2.default.createElement('input', { placeholder: 'Place a direct link to an image', ref: 'media' })
                 )
               )
             )
@@ -24096,7 +24122,7 @@ var PostPopup = function (_React$Component) {
 
 exports.default = PostPopup;
 
-},{"./Popup":209,"react":203}],211:[function(require,module,exports){
+},{"../../actions":205,"./Popup":209,"react":203}],211:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24296,7 +24322,7 @@ var Navbar = function (_React$Component) {
             ),
             _react2.default.createElement(_ProfileMenu2.default, { user: this.props.user })
           ),
-          _react2.default.createElement(_PostPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
+          _react2.default.createElement(_PostPopup2.default, { user: this.props.user, status: this.state.popupStatus, hidePopup: this.hidePopup })
         ) :
         //display the login link here
         _react2.default.createElement(
