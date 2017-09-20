@@ -7,7 +7,8 @@ class ProductStore {
   constructor() {
     this.state = {
       user: null,
-      products: []
+      products: [],
+      comments: []
     };
   }
 
@@ -22,6 +23,10 @@ class ProductStore {
     this.setState({products: products});
   }
 
+  @bind(Actions.getComments)
+  getComments(comments) {
+    this.setState({comments: comments})
+  }
 }
 
 export default alt.createStore(ProductStore);

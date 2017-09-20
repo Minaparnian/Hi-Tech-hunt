@@ -40791,6 +40791,30 @@ var Actions = function () {
         _firebase2.default.database().ref('/comments/' + productId).push(comment);
       };
     }
+  }, {
+    key: 'addComment',
+    value: function addComment(productId, comment) {
+      return function (dispatch) {
+        _firebase2.default.database().ref('comments/' + productId).push(comment);
+      };
+    }
+  }, {
+    key: 'getComments',
+    value: function getComments(productId) {
+      return function (dispatch) {
+        var commentRef = _firebase2.default.database().ref('comments/' + productId);
+
+        commentRef.on('value', function (snapshot) {
+          var commentsValue = snapshot.val();
+          var comments = (0, _lodash2.default)(commentsValue).keys().map(function (commentKey) {
+            var item = _lodash2.default.clone(commentsValue[commentKey]);
+            item.key = commentKey;
+            return item;
+          }).value();
+          dispatch(comments);
+        });
+      };
+    }
   }]);
 
   return Actions;
@@ -41720,21 +41744,22 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
       }
     };
 
-    _this.state = {
-      comments: [{
-        name: "Leo",
-        avatar: "/img/leo.jpeg",
-        content: "I love this product"
-      }, {
-        name: "Hieu",
-        avatar: "/img/hieu.jpeg",
-        content: "Me too"
-      }]
-    };
     return _this;
   }
 
   _createClass(ProductPopup, [{
+    key: 'shouldComponentUpdate',
+
+
+    // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
+      if (nextProps.status && this.props.status != nextProps.status) {
+        _actions2.default.getComments(this.props.pid);
+      }
+      return true;
+    }
+  }, {
     key: 'renderHeader',
     value: function renderHeader() {
       return _react2.default.createElement(
@@ -41805,7 +41830,7 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
       return _react2.default.createElement(
         'ul',
         { className: 'comment-list' },
-        this.state.comments.map(function (comment, idx) {
+        this.props.comments.map(function (comment, idx) {
           return _react2.default.createElement(
             'li',
             { key: idx },
@@ -42035,7 +42060,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _dec2, _dec3, _class, _desc, _value, _class2;
+var _dec, _dec2, _dec3, _dec4, _class, _desc, _value, _class2;
 
 var _alt = require('../alt');
 
@@ -42080,13 +42105,14 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.login, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec(_class = (_class2 = function () {
+var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.login, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
   function ProductStore() {
     _classCallCheck(this, ProductStore);
 
     this.state = {
       user: null,
-      products: []
+      products: [],
+      comments: []
     };
   }
 
@@ -42103,10 +42129,15 @@ var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0,
     value: function getProducts(products) {
       this.setState({ products: products });
     }
+  }, {
+    key: 'getComments',
+    value: function getComments(comments) {
+      this.setState({ comments: comments });
+    }
   }]);
 
   return ProductStore;
-}(), (_applyDecoratedDescriptor(_class2.prototype, 'setUser', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'setUser'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'getProducts', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'getProducts'), _class2.prototype)), _class2)) || _class);
+}(), (_applyDecoratedDescriptor(_class2.prototype, 'setUser', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'setUser'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'getProducts', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'getProducts'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'getComments', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'getComments'), _class2.prototype)), _class2)) || _class);
 exports.default = _alt2.default.createStore(ProductStore);
 
 },{"../actions":206,"../alt":207,"alt-utils/lib/decorators":2}],220:[function(require,module,exports){

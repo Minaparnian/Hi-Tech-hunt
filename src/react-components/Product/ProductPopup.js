@@ -9,20 +9,6 @@ import Actions from '../../actions';
 class ProductPopup extends React.Component {
   constructor() {
     super();
-    this.state = {
-      comments: [
-        {
-          name:"Leo",
-          avatar: "/img/leo.jpeg",
-          content: "I love this product"
-        },
-        {
-          name:"Hieu",
-          avatar: "/img/hieu.jpeg",
-          content: "Me too"
-        }
-      ]
-    }
   }
 
   static getStores() {
@@ -31,6 +17,15 @@ class ProductPopup extends React.Component {
 
   static getPropsFromStores() {
     return ProductStore.getState();
+  }
+
+  // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
+  shouldComponentUpdate(nextProps, nextState) {
+    // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
+    if (nextProps.status && this.props.status != nextProps.status) {
+      Actions.getComments(this.props.pid);
+    }
+    return true;
   }
 
   renderHeader(){
@@ -93,7 +88,7 @@ class ProductPopup extends React.Component {
     return (
       <ul className="comment-list">
         {
-          this.state.comments.map(function(comment, idx) {
+          this.props.comments.map(function(comment, idx) {
             return (
               <li key={idx}>
                 <img className="medium-avatar" src={comment.avatar}/>
