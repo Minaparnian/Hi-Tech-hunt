@@ -68,7 +68,13 @@ class Actions {
   getProducts() {
     return(dispatch) => {
       Firebase.database().ref('products').on('value', function(snapshot) {
-        var products = _.values(snapshot.val());
+        var productsValue = snapshot.val();
+        var products = _(productsValue).keys().map((productKey) => {
+          var item = _.clone(productsValue[productKey]);
+          item.key = productKey;
+          return item;
+        })
+        .value();
         dispatch(products);
       });
     }
@@ -77,6 +83,18 @@ class Actions {
   addProduct(product) {
     return (dispatch) => {
       Firebase.database().ref('products').push(product);
+    }
+  }
+
+  addVote(productId, userId) {
+    return (dispatch) => {
+      var firebaseRef = Firebase.database().ref('products/'+productId+'/upvote');
+
+      var vote = 0;
+      firebaseRef.on('value', function(snapshot) {
+        vote = snapshot.val();
+      });
+      firebaseRef.set(vote+1);
     }
   }
 

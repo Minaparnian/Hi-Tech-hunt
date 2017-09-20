@@ -9,7 +9,7 @@ class ProductList extends React.Component {
 
           //you can use map function only the product list is an array
           this.props.productList.map(function(item, idx) {
-            return <ProductItem key={idx} {...item}/>
+            return <ProductItem key={idx} pid={item.key} {...item}/>
           })
         }
       </ul>
