@@ -33,12 +33,6 @@ class Navbar extends React.Component {
   renderLogo() {
     return (
       <a href="#"><img src="/img/favicon.ico"/></a>
-      <div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
-      </div>
     );
   }
 
