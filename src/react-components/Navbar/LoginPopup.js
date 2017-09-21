@@ -23,6 +23,11 @@ class LoginPopup extends React.Component {
       this.props.hidePopup();
   };
 
+  handleGoogleLogin = () => {
+      Actions.loginGoogle();
+      this.props.hidePopup();
+  };
+
 
 
   render() {
