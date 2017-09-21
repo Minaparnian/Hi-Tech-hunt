@@ -89,7 +89,7 @@ a {
 	height: 32px;
 	width: 32px;
 	border-radius: 50%;
-	/*margin-left: 15px;*/
+	margin-right: 10px;
 }
 
 .product-list {
@@ -187,8 +187,8 @@ a {
 }
 
 .navbar {
-	text-align: center;
-	padding: 10px 10px 5px;
+
+	padding: 5px 10px 25px;
 }
 
 .navbar .left-side {
@@ -221,6 +221,10 @@ a {
 	color: #da552f;
 }
 
+.home-page-logo {
+	width: 32px;
+
+}
 /*------------------------------ POPUP ------------------------------*/
 .popup .popup-wrap {
 	position: fixed;
@@ -279,7 +283,7 @@ button:hover {
 .logo {
 	width: 300px;
 	border-radius: 50%;
-	
+
 }
 
 /* POST POPUP*/

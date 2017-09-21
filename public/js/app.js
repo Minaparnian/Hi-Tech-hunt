@@ -40751,26 +40751,6 @@ var Actions = function () {
       };
     }
   }, {
-    key: 'loginGoogle',
-    value: function loginGoogle() {
-      return function (dispatch) {
-        var provider = new _firebase2.default.auth.GithubAuthProvider();
-        _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
-          var user = result.user;
-
-          var profile = {
-            id: user.uid,
-            name: user.providerData[0].displayName,
-            avatar: user.providerData[0].photoURL
-            // is going to create a new user on firebase and under that is going to create a fb id and then its going to safe all information in the database via var profile.
-          };_firebase2.default.database().ref('/users/' + user.uid).set(profile);
-          dispatch(profile);
-        }).catch(function (error) {
-          console.log('Failed!', error);
-        });
-      };
-    }
-  }, {
     key: 'loginTwitter',
     value: function loginTwitter() {
       return function (dispatch) {
@@ -41497,15 +41477,6 @@ var Navbar = function (_React$Component) {
       );
     }
   }, {
-    key: 'renderLogo',
-    value: function renderLogo() {
-      return _react2.default.createElement(
-        'a',
-        { href: '#' },
-        _react2.default.createElement('img', { src: '/img/favicon.ico' })
-      );
-    }
-  }, {
     key: 'renderUser',
     value: function renderUser() {
       return _react2.default.createElement(
@@ -41551,7 +41522,6 @@ var Navbar = function (_React$Component) {
           'section',
           { className: 'navbar' },
           this.renderProductSearch(),
-          this.renderLogo(),
           this.renderUser()
         )
       );
