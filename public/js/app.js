@@ -40938,7 +40938,7 @@ var HomePage = (0, _connectToStores2.default)(_class = function (_React$Componen
         _react2.default.createElement(
           'header',
           null,
-          _react2.default.createElement('img', { src: '/img/banner.jpeg', width: '100%' })
+          _react2.default.createElement('img', { src: '/img/TechIconsBanner3.png', width: '100%' })
         ),
         _react2.default.createElement(
           'section',
