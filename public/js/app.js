@@ -40730,6 +40730,26 @@ var Actions = function () {
       };
     }
   }, {
+    key: 'loginGithub',
+    value: function loginGithub() {
+      return function (dispatch) {
+        var provider = new firebase.auth.GithubAuthProvider();
+        _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
+          var user = result.user;
+
+          var profile = {
+            id: user.uid,
+            name: user.providerData[0].displayName,
+            avatar: user.providerData[0].photoURL
+            // is going to create a new user on firebase and under that is going to create a fb id and then its going to safe all information in the database via var profile.
+          };_firebase2.default.database().ref('/users/' + user.uid).set(profile);
+          dispatch(profile);
+        }).catch(function (error) {
+          console.log('Failed!', error);
+        });
+      };
+    }
+  }, {
     key: 'loginTwitter',
     value: function loginTwitter() {
       return function (dispatch) {
