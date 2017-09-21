@@ -53,7 +53,38 @@ class Actions {
     }
   }
 
-  
+  loginGithub() {
+    return (dispatch) => {
+      var provider = new firebase.auth.GithubAuthProvider();
+        Firebase.auth().signInWithPopup(provider).then(function(result) {
+          if (result.credential) {
+             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+             var token = result.credential.accessToken;
+        }
+        // The signed-in user info.
+        var user = result.user;
+
+        var profile = {
+          id: user.uid,
+          name: user.providerData[0].displayName,
+          avatar: user.providerData[0].photoURL
+        }
+          // is going to create a new user on firebase and under that is going to create a fb id and then its going to safe all information in the database via var profile.
+        Firebase.database().ref('/users/'+user.uid).set(profile);
+        dispatch(profile);
+
+      }).catch(function(error) {
+        // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+      });
+    }
+  }
 
 
 

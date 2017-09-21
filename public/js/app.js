@@ -40730,6 +40730,38 @@ var Actions = function () {
       };
     }
   }, {
+    key: 'loginGithub',
+    value: function loginGithub() {
+      return function (dispatch) {
+        var provider = new firebase.auth.GithubAuthProvider();
+        _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
+          if (result.credential) {
+            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+            var token = result.credential.accessToken;
+          }
+          // The signed-in user info.
+          var user = result.user;
+
+          var profile = {
+            id: user.uid,
+            name: user.providerData[0].displayName,
+            avatar: user.providerData[0].photoURL
+            // is going to create a new user on firebase and under that is going to create a fb id and then its going to safe all information in the database via var profile.
+          };_firebase2.default.database().ref('/users/' + user.uid).set(profile);
+          dispatch(profile);
+        }).catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+      };
+    }
+  }, {
     key: 'logout',
     value: function logout() {
       return function (dispatch) {
@@ -40974,7 +41006,11 @@ var LoginPopup = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginPopup.__proto__ || Object.getPrototypeOf(LoginPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handleLogin = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginPopup.__proto__ || Object.getPrototypeOf(LoginPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handleGithubLogin = function () {
+      _actions2.default.loginGithub();
+      // this will make sure after you log in, we close the login popups.
+      _this.props.hidePopup();
+    }, _this.handleFacebookLogin = function () {
       _actions2.default.loginFacebook();
       // this will make sure after you log in, we close the login popups.
       _this.props.hidePopup();
@@ -40998,10 +41034,10 @@ var LoginPopup = function (_React$Component) {
           null,
           'Hi-tech hunt is a Community to share and geek out about the latest code, podcast and news. Join us :)'
         ),
-        _react2.default.createElement('img', { src: 'img/twitter.png', className: 'facebook-btn', onClick: this.handleLogin }),
-        _react2.default.createElement('img', { src: 'img/github.png', className: 'facebook-btn', onClick: this.handleLogin }),
-        _react2.default.createElement('img', { src: 'img/google.png', className: 'facebook-btn', onClick: this.handleLogin }),
-        _react2.default.createElement('img', { src: 'img/facebook.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/twitter.png', className: 'facebook-btn', onClick: this.handleTwitterLogin }),
+        _react2.default.createElement('img', { src: 'img/github.png', className: 'facebook-btn', onClick: this.handleGithubLogin }),
+        _react2.default.createElement('img', { src: 'img/google.png', className: 'facebook-btn', onClick: this.handleGoogleLogin }),
+        _react2.default.createElement('img', { src: 'img/facebook.png', className: 'facebook-btn', onClick: this.handleFacebookLogin }),
         _react2.default.createElement(
           'p',
           null,
@@ -42104,7 +42140,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.loginFacebook, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
+var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.loginFacebook, _actions2.default.loginGithub, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
   function ProductStore() {
     _classCallCheck(this, ProductStore);
 
