@@ -40792,6 +40792,16 @@ var Actions = function () {
       };
     }
   }, {
+<<<<<<< HEAD
+=======
+    key: 'addComment',
+    value: function addComment(productId, comment) {
+      return function (dispatch) {
+        _firebase2.default.database().ref('comments/' + productId).push(comment);
+      };
+    }
+  }, {
+>>>>>>> 7a042ef9522d0de3ab9e3a2b9c47cb234b093251
     key: 'getComments',
     value: function getComments(productId) {
       return function (dispatch) {
@@ -41744,7 +41754,12 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
   _createClass(ProductPopup, [{
     key: 'shouldComponentUpdate',
 
+<<<<<<< HEAD
     //the problem was insted of nextProps.status was nextStae.status
+=======
+
+    // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
+>>>>>>> 7a042ef9522d0de3ab9e3a2b9c47cb234b093251
     value: function shouldComponentUpdate(nextProps, nextState) {
       // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
       if (nextProps.status && this.props.status != nextProps.status) {

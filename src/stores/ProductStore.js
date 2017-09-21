@@ -24,11 +24,10 @@ class ProductStore {
     this.setState({products: products});
   }
 
-  @bind(Actions.getComments)      
+  @bind(Actions.getComments)
   getComments(comments) {
-    this.setState({comments: comments});
+    this.setState({comments: comments})
   }
-
 }
 
 export default alt.createStore(ProductStore);
