@@ -53,15 +53,11 @@ class Actions {
     }
   }
 
-  loginGithub() {
+
+  loginTwitter() {
     return (dispatch) => {
-      var provider = new firebase.auth.GithubAuthProvider();
-        Firebase.auth().signInWithPopup(provider).then(function(result) {
-          if (result.credential) {
-             // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-             var token = result.credential.accessToken;
-        }
-        // The signed-in user info.
+      var provider = new firebase.auth.TwitterAuthProvider();
+      Firebase.auth().signInWithPopup(provider).then(function(result) {
         var user = result.user;
 
         var profile = {
@@ -74,44 +70,10 @@ class Actions {
         dispatch(profile);
 
       }).catch(function(error) {
-        // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // ...
+        console.log('Failed!', error);
       });
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   logout() {
