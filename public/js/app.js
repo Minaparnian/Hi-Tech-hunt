@@ -40792,8 +40792,6 @@ var Actions = function () {
       };
     }
   }, {
-<<<<<<< HEAD
-=======
     key: 'addComment',
     value: function addComment(productId, comment) {
       return function (dispatch) {
@@ -40801,7 +40799,6 @@ var Actions = function () {
       };
     }
   }, {
->>>>>>> 7a042ef9522d0de3ab9e3a2b9c47cb234b093251
     key: 'getComments',
     value: function getComments(productId) {
       return function (dispatch) {
@@ -40885,18 +40882,6 @@ var HomePage = (0, _connectToStores2.default)(_class = function (_React$Componen
   function HomePage() {
     _classCallCheck(this, HomePage);
 
-    // this.state = {
-    //   productList: null
-    // }
-    //
-    // Firebase.database().ref('products').on('value', (snapshot) => {
-    //  debugger;
-    //   var products = snapshot.val();
-    //
-    //   this.setState({
-    //     productList: products.slice(1)
-    //   })
-    // });
     var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
 
     _actions2.default.getProducts();
@@ -41754,12 +41739,19 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
   _createClass(ProductPopup, [{
     key: 'shouldComponentUpdate',
 
-<<<<<<< HEAD
     //the problem was insted of nextProps.status was nextStae.status
-=======
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
+      if (nextProps.status && this.props.status != nextProps.status) {
+        _actions2.default.getComments(this.props.pid);
+      }
+      return true;
+    }
 
     // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
->>>>>>> 7a042ef9522d0de3ab9e3a2b9c47cb234b093251
+
+  }, {
+    key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
       // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
       if (nextProps.status && this.props.status != nextProps.status) {
