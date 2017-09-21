@@ -7,6 +7,8 @@ class LoginPopup extends React.Component {
 
   handleGithubLogin = () => {
       Actions.loginGithub();
+      this.props.hidePopup();
+  };
 
   handleTwitterLogin = () => {
       Actions.loginTwitter();
@@ -34,10 +36,6 @@ class LoginPopup extends React.Component {
         <img src="img/github.png" className="facebook-btn" onClick={this.handleGithubLogin}/>
         <img src="img/google.png" className="facebook-btn" onClick={this.handleGoogleLogin}/>
         <img src="img/facebook.png" className="facebook-btn" onClick={this.handleFacebookLogin}/>
-
-
-
-
         <p>We'll never post without your permission.</p>
       </Popup>
     );
