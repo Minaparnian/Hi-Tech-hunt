@@ -14,7 +14,7 @@ class ProductStore {
   }
 
   // this means whenever a user login or logout, products dont need to know about that.
-  @bind(Actions.login, Actions.initSession, Actions.logout)
+  @bind(Actions.loginFacebook, Actions.initSession, Actions.logout)
   setUser(user) {
     this.setState({user: user});
   }

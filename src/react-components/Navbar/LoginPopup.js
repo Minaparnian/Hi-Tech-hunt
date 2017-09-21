@@ -5,7 +5,7 @@ import Actions from '../../actions';
 class LoginPopup extends React.Component {
 
   handleLogin = () => {
-      Actions.login();
+      Actions.loginFacebook();
       // this will make sure after you log in, we close the login popups.
       this.props.hidePopup();
   };
