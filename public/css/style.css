@@ -267,9 +267,19 @@ button:hover {
 }
 
 .facebook-btn {
-	color: white;
-	background-color: #3b5998;
-	margin: 20px;
+	width: 40px;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-right: 10px;
+
+}
+
+
+.logo {
+	width: 300px;
+	border-radius: 50%;
+	
 }
 
 /* POST POPUP*/

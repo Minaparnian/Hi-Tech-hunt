@@ -40987,7 +40987,7 @@ var LoginPopup = function (_React$Component) {
       return _react2.default.createElement(
         _Popup2.default,
         _extends({}, this.props, { style: 'login-popup' }),
-        _react2.default.createElement('img', { src: '/img/kitty.png' }),
+        _react2.default.createElement('img', { src: '/img/logo2.png', className: 'logo' }),
         _react2.default.createElement(
           'h1',
           null,
@@ -40996,17 +40996,16 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'p',
           null,
-          'CodeHunt is a Community to share and geek out about the latest code, podcast and news. Join us :)'
+          'Hi-tech hunt is a Community to share and geek out about the latest code, podcast and news. Join us :)'
         ),
-        _react2.default.createElement(
-          'button',
-          { className: 'facebook-btn', onClick: this.handleLogin },
-          'Login with Facebook'
-        ),
+        _react2.default.createElement('img', { src: 'img/twitter.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/github.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/google.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/facebook.png', className: 'facebook-btn', onClick: this.handleLogin }),
         _react2.default.createElement(
           'p',
           null,
-          'We\'ll never post to Facebook without your permission.'
+          'We\'ll never post without your permission.'
         )
       );
     }
