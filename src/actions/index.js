@@ -32,7 +32,7 @@ class Actions {
     }
   }
 
-  login() {
+  loginFacebook() {
     return (dispatch) => {
       var provider = new Firebase.auth.FacebookAuthProvider();
       Firebase.auth().signInWithPopup(provider).then(function(result) {

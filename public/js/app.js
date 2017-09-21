@@ -40710,8 +40710,8 @@ var Actions = function () {
       };
     }
   }, {
-    key: 'login',
-    value: function login() {
+    key: 'loginFacebook',
+    value: function loginFacebook() {
       return function (dispatch) {
         var provider = new _firebase2.default.auth.FacebookAuthProvider();
         _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
@@ -40987,7 +40987,7 @@ var LoginPopup = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginPopup.__proto__ || Object.getPrototypeOf(LoginPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handleLogin = function () {
-      _actions2.default.login();
+      _actions2.default.loginFacebook();
       // this will make sure after you log in, we close the login popups.
       _this.props.hidePopup();
     }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -42105,7 +42105,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.login, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
+var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.loginFacebook, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
   function ProductStore() {
     _classCallCheck(this, ProductStore);
 
