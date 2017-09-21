@@ -53,6 +53,36 @@ class Actions {
     }
   }
 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   logout() {
     return(dispatch) => {
       Firebase.auth().signOut().then(function() {
