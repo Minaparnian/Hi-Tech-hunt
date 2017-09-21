@@ -33,6 +33,7 @@ class Actions {
   }
 
   loginFacebook() {
+
     return (dispatch) => {
       var provider = new Firebase.auth.FacebookAuthProvider();
       Firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -55,7 +56,7 @@ class Actions {
 
   loginGithub() {
     return (dispatch) => {
-      var provider = new firebase.auth.GithubAuthProvider();
+      var provider = new Firebase.auth.GithubAuthProvider();
       Firebase.auth().signInWithPopup(provider).then(function(result) {
         var user = result.user;
 
@@ -74,11 +75,13 @@ class Actions {
     }
   }
 
+  
+
 
 
   loginTwitter() {
     return (dispatch) => {
-      var provider = new firebase.auth.TwitterAuthProvider();
+      var provider = new Firebase.auth.TwitterAuthProvider();
       Firebase.auth().signInWithPopup(provider).then(function(result) {
         var user = result.user;
 
