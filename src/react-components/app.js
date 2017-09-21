@@ -25,7 +25,7 @@ class App extends React.Component {
   render(){
     return (
       <section>
-        {/* this.propd.user can check if the user is connected or not in ProductStore */}
+        {/* this.props.user can check if the user is connected or not in ProductStore */}
         <Navbar user={this.props.user}/>
         <HomePage/>
       </section>

@@ -40882,18 +40882,6 @@ var HomePage = (0, _connectToStores2.default)(_class = function (_React$Componen
   function HomePage() {
     _classCallCheck(this, HomePage);
 
-    // this.state = {
-    //   productList: null
-    // }
-    //
-    // Firebase.database().ref('products').on('value', (snapshot) => {
-    //  debugger;
-    //   var products = snapshot.val();
-    //
-    //   this.setState({
-    //     productList: products.slice(1)
-    //   })
-    // });
     var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
 
     _actions2.default.getProducts();
@@ -40999,7 +40987,7 @@ var LoginPopup = function (_React$Component) {
       return _react2.default.createElement(
         _Popup2.default,
         _extends({}, this.props, { style: 'login-popup' }),
-        _react2.default.createElement('img', { src: '/img/kitty.png' }),
+        _react2.default.createElement('img', { src: '/img/logo2.png', className: 'logo' }),
         _react2.default.createElement(
           'h1',
           null,
@@ -41008,17 +40996,16 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement(
           'p',
           null,
-          'CodeHunt is a Community to share and geek out about the latest code, podcast and news. Join us :)'
+          'Hi-tech hunt is a Community to share and geek out about the latest code, podcast and news. Join us :)'
         ),
-        _react2.default.createElement(
-          'button',
-          { className: 'facebook-btn', onClick: this.handleLogin },
-          'Login with Facebook'
-        ),
+        _react2.default.createElement('img', { src: 'img/twitter.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/github.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/google.png', className: 'facebook-btn', onClick: this.handleLogin }),
+        _react2.default.createElement('img', { src: 'img/facebook.png', className: 'facebook-btn', onClick: this.handleLogin }),
         _react2.default.createElement(
           'p',
           null,
-          'We\'ll never post to Facebook without your permission.'
+          'We\'ll never post without your permission.'
         )
       );
     }
@@ -41733,6 +41720,7 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
     var _this = _possibleConstructorReturn(this, (ProductPopup.__proto__ || Object.getPrototypeOf(ProductPopup)).call(this));
 
     _this.handleComment = function (e) {
+      //number 13 means return or enter.
       if (e.keyCode === 13 && e.target.value.length > 0) {
         var comment = {
           content: e.target.value,
@@ -41750,8 +41738,19 @@ var ProductPopup = (0, _connectToStores2.default)(_class = function (_React$Comp
   _createClass(ProductPopup, [{
     key: 'shouldComponentUpdate',
 
+    //the problem was insted of nextProps.status was nextStae.status
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
+      if (nextProps.status && this.props.status != nextProps.status) {
+        _actions2.default.getComments(this.props.pid);
+      }
+      return true;
+    }
 
     // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
+
+  }, {
+    key: 'shouldComponentUpdate',
     value: function shouldComponentUpdate(nextProps, nextState) {
       // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
       if (nextProps.status && this.props.status != nextProps.status) {

@@ -18,6 +18,14 @@ class ProductPopup extends React.Component {
   static getPropsFromStores() {
     return ProductStore.getState();
   }
+  //the problem was insted of nextProps.status was nextStae.status
+  shouldComponentUpdate(nextProps, nextState) {
+    // this.props.status comes from the ProductItem, this is just checking whether or not we open the ProductPopup by comparing the current status with the next props status.
+    if (nextProps.status && this.props.status != nextProps.status) {
+      Actions.getComments(this.props.pid);
+    }
+    return true;
+  }
 
   // we are going to check if a ProductPopup is open, and then we are going to request all the comments for that product only.
   shouldComponentUpdate(nextProps, nextState) {
@@ -43,7 +51,10 @@ class ProductPopup extends React.Component {
     );
   }
 
+
+
   handleComment = (e) => {
+    //number 13 means return or enter.
     if(e.keyCode === 13 && e.target.value.length > 0) {
       var comment = {
         content: e.target.value,
