@@ -14,19 +14,19 @@ class ProductStore {
   }
 
   // this means whenever a user login or logout, products dont need to know about that.
-  @bind(Actions.loginFacebook, Actions.loginTwitter, Actions.loginGithub, Actions.loginGoogle, Actions.initSession, Actions.logout)
-  setUser(user) {
-    this.setState({user: user});
-  }
+    @bind(Actions.loginFacebook, Actions.loginTwitter, Actions.loginGithub, Actions.loginGoogle, Actions.initSession, Actions.logout)
+    setUser(user) {
+      this.setState({user: user});
+    }
 
-  @bind(Actions.getProducts)
-  getProducts(products) {
+    @bind(Actions.getProducts)
+    getProducts(products) {
     this.setState({products: products});
   }
 
-  @bind(Actions.getComments)
-  getComments(comments) {
-    this.setState({comments: comments})
+    @bind(Actions.getComments)
+    getComments(comments) {
+      this.setState({comments: comments})
   }
 }
 
