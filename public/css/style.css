@@ -85,7 +85,7 @@ footer {
 	color: white;
 	margin-top: 70px;
 	font-size: 12px;
-	
+
 }
 
 /*------------------------------ Product list ------------------------------*/
@@ -167,13 +167,13 @@ footer {
 
 
 .upvote-button:hover {
-	color: #5e9aee;
+	color: #ef912b;
 
 
 }
 
 .upvote-button.active {
-	color: #5e9aee;
+	color: #ef912b;
 
 }
 
