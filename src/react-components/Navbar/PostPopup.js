@@ -2,9 +2,12 @@ import React from 'react';
 import Popup from './Popup';
 import Actions from '../../actions';
 
+
+
 class PostPopup extends React.Component {
+
   handlePost = () => {
-    // debugger;
+    this.props.hidePopup()
     var newProduct = {
       name: this.refs.name.value,
       link: this.refs.link.value,
@@ -19,6 +22,8 @@ class PostPopup extends React.Component {
 
     Actions.addProduct(newProduct);
   };
+
+
 
   render() {
     return (

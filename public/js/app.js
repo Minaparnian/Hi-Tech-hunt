@@ -41192,7 +41192,7 @@ var PostPopup = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PostPopup.__proto__ || Object.getPrototypeOf(PostPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handlePost = function () {
-      // debugger;
+      _this.props.hidePopup();
       var newProduct = {
         name: _this.refs.name.value,
         link: _this.refs.link.value,
