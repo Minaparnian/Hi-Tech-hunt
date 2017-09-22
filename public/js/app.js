@@ -40771,6 +40771,26 @@ var Actions = function () {
       };
     }
   }, {
+    key: 'loginGoogle',
+    value: function loginGoogle() {
+      return function (dispatch) {
+        var provider = new _firebase2.default.auth.GoogleAuthProvider();
+        _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
+          var user = result.user;
+
+          var profile = {
+            id: user.uid,
+            name: user.providerData[0].displayName,
+            avatar: user.providerData[0].photoURL
+            // is going to create a new user on firebase and under that is going to create a fb id and then its going to safe all information in the database via var profile.
+          };_firebase2.default.database().ref('/users/' + user.uid).set(profile);
+          dispatch(profile);
+        }).catch(function (error) {
+          console.log('Failed!', error);
+        });
+      };
+    }
+  }, {
     key: 'logout',
     value: function logout() {
       return function (dispatch) {
@@ -41026,6 +41046,9 @@ var LoginPopup = function (_React$Component) {
     }, _this.handleFacebookLogin = function () {
       _actions2.default.loginFacebook();
       // this will make sure after you log in, we close the login popups.
+      _this.props.hidePopup();
+    }, _this.handleGoogleLogin = function () {
+      _actions2.default.loginGoogle();
       _this.props.hidePopup();
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -42143,7 +42166,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.loginFacebook, _actions2.default.loginTwitter, _actions2.default.loginGithub, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
+var ProductStore = (_dec = (0, _decorators.decorate)(_alt2.default), _dec2 = (0, _decorators.bind)(_actions2.default.loginFacebook, _actions2.default.loginTwitter, _actions2.default.loginGithub, _actions2.default.loginGoogle, _actions2.default.initSession, _actions2.default.logout), _dec3 = (0, _decorators.bind)(_actions2.default.getProducts), _dec4 = (0, _decorators.bind)(_actions2.default.getComments), _dec(_class = (_class2 = function () {
   function ProductStore() {
     _classCallCheck(this, ProductStore);
 
