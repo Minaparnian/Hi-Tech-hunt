@@ -23,10 +23,9 @@ An online version of the game can be accessed using this  [Link  :link:](https:/
 
 ### Build With
 
-- React
+- React Js with ES6 syntax for Front End
 - HTML/CSS
 - Node.js
 - Lodash
 - Flux/Alt
-- Firebase
-- JavaScript with ES6
+- Firebase for realtime Backend
